@@ -1,0 +1,34 @@
+opam-version: "2.0"
+synopsis: "An OCaml and tool for building logistic regression models"
+description:
+  "Slur is an OCaml library and command line tool for building logistic
+   regression (binary classification) models, both via L-BFGS-B and SGD."
+maintainer: ["mika@illouz.net"]
+authors: ["Mika Illouz"]
+license: "BSD"
+homepage: "https://github.com/barko/slur"
+doc: "https://barko.github.io/slur/"
+bug-reports: "https://github.com/barko/slur/issues"
+depends: [
+  "dune" {> "1.5"}
+  "re" {>= "1.9.0"}
+  "cmdliner" {>= "1.0.4"}
+  "ocaml" {>= "4.08.0"}
+  "bentov" {>= "3"}
+  "cosovo" {>= "1"}
+  "lbfgs" {>= "0.9.3"}
+]
+build: [
+  ["dune" "subst"] {pinned}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+  ]
+]
+
+dev-repo: "git+https://github.com/barko/slur.git"

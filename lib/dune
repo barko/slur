@@ -1,0 +1,16 @@
+(library
+  (name slur)
+  (public_name slur)
+  (libraries bentov lbfgs lbfgs.fortran cmdliner atdgen msgpck zmq)
+)
+
+; linear.atd
+(rule
+  (targets linear_t.ml linear_t.mli)
+  (deps linear.atd)
+  (action (run atdgen -t %{deps})))
+
+(rule
+ (targets linear_b.ml linear_b.mli)
+ (deps linear.atd)
+ (action (run atdgen -b %{deps})))

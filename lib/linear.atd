@@ -1,0 +1,20 @@
+(* linear model *)
+
+type f = {
+  w : float;
+  (* coefficient *)
+
+  mean : float;
+  (* z-scoring mean *)
+
+  std : float;
+  (* z-scoring standard deviation *)
+}
+
+type model = {
+  (* coefficients *)
+  fa : f list;
+
+  (* mean term *)
+  c : float;
+}
